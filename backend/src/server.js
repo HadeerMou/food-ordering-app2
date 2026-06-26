@@ -304,6 +304,17 @@ app.post("/api/orders", requireAuth, async (req, res, next) => {
   }
 });
 
+app.get("/api/orders/me", requireAuth, async (req, res, next) => {
+  try {
+    const db = await readDb();
+    return res.json({
+      orders: db.orders.filter((order) => order.userId === req.user.sub),
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get("/api/orders/:id", async (req, res, next) => {
   try {
     const db = await readDb();
@@ -312,17 +323,6 @@ app.get("/api/orders/:id", async (req, res, next) => {
     );
     if (!order) return res.status(404).json({ message: "Order not found." });
     return res.json({ order });
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.get("/api/orders/me", requireAuth, async (req, res, next) => {
-  try {
-    const db = await readDb();
-    return res.json({
-      orders: db.orders.filter((order) => order.userId === req.user.sub),
-    });
   } catch (error) {
     next(error);
   }

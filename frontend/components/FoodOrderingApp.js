@@ -70,6 +70,7 @@ const copy = {
     trackText: "Enter your order number to see its live status.",
     trackPlaceholder: "Example: ORD-1001",
     notFound: "Order not found.",
+    noOrders: "You haven't placed any orders yet.",
     myOrders: "Your orders",
     status: {
       confirmed: "Confirmed",
@@ -168,6 +169,7 @@ const copy = {
     trackText: "أدخل رقم الطلب لمعرفة حالته الحالية.",
     trackPlaceholder: "مثال: ORD-1001",
     notFound: "الطلب غير موجود.",
+    noOrders: "لم تقم بتقديم أي طلبات بعد.",
     myOrders: "طلباتك",
     status: {
       confirmed: "تم التأكيد",
@@ -293,6 +295,7 @@ export default function FoodOrderingApp() {
   const [productModal, setProductModal] = useState(null);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const t = copy[language];
   const isAdmin = user?.role === "admin";
@@ -562,6 +565,12 @@ export default function FoodOrderingApp() {
   return (
     <main>
       <nav className="nav">
+        <button
+          className="menu-toggle"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          ☰
+        </button>
         <button className="brand" onClick={() => setPage("menu")}>
           <span>🍽</span>
           {t.restaurant}
@@ -616,6 +625,39 @@ export default function FoodOrderingApp() {
           )}
         </div>
       </nav>
+
+      {mobileMenuOpen && (
+        <div className="mobile-nav">
+          <button
+            onClick={() => {
+              setPage("menu");
+              setMobileMenuOpen(false);
+            }}
+          >
+            {t.menu}
+          </button>
+
+          <button
+            onClick={() => {
+              setPage("track");
+              setMobileMenuOpen(false);
+            }}
+          >
+            {t.track}
+          </button>
+
+          {isAdmin && (
+            <button
+              onClick={() => {
+                setPage("admin");
+                setMobileMenuOpen(false);
+              }}
+            >
+              {t.admin}
+            </button>
+          )}
+        </div>
+      )}
 
       {page === "menu" && (
         <>
@@ -758,7 +800,7 @@ export default function FoodOrderingApp() {
                   <Status status={order.status} t={t} />
                 </button>
               ))}
-              {!myOrders.length && <p className="muted">{t.loading}</p>}
+              {!myOrders.length && <p className="muted">{t.noOrders}</p>}
             </div>
           )}
         </section>
