@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Nour Restaurant',
+  title: 'Foody Restaurant',
   description: 'Bilingual online food ordering prototype'
 };
 
