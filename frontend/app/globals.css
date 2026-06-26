@@ -941,39 +941,31 @@ td small {
 [dir="rtl"] .hero h1 {
   letter-spacing: 0;
 }
-
-.mobile-nav{
-    display:none;
-    position:fixed;
-    top:72px;
-    left:0;
-    right:0;
-    flex-direction:column;
-    background:white;
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-    z-index:999;
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 100;
 }
 
-.mobile-nav button{
-    padding:18px;
-    border:none;
-    background:white;
-    text-align:left;
-    border-bottom:1px solid #eee;
-}
-.mobile-backdrop{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:99;
+.mobile-nav button {
+  padding: 18px;
+  border: none;
+  background: white;
+  text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
-.mobile-nav{
-    position:fixed;
-    top:70px;
-    left:0;
-    right:0;
-    z-index:100;
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 99;
 }
 @media (max-width: 850px) {
   .nav {
@@ -994,6 +986,7 @@ td small {
     display: none;
   }
   .nav-actions {
+    order: 3;
     display: flex;
     gap: 7px;
   }
@@ -1011,6 +1004,9 @@ td small {
 @media (max-width: 540px) {
   .nav {
     height: 62px;
+  }
+  .mobile-nav {
+    top: 62px;
   }
   .brand {
     font-size: 1.16rem;
