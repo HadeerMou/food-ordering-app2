@@ -63,29 +63,7 @@ select:focus-visible {
   display: none;
 }
 
-@media (max-width: 850px) {
-  .menu-toggle {
-    display: block;
-  }
 
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .mobile-nav button {
-    border: 0;
-    background: white;
-    padding: 14px 18px;
-    text-align: left;
-  }
-}
 .brand {
   border: 0;
   background: transparent;
@@ -967,19 +945,51 @@ td small {
 [dir="rtl"] .hero h1 {
   letter-spacing: 0;
 }
+
+.mobile-nav{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    flex-direction:column;
+    background:white;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    z-index:999;
+}
+
+.mobile-nav button{
+    padding:18px;
+    border:none;
+    background:white;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
 @media (max-width: 850px) {
   .nav {
-    gap: 9px;
+    justify-content: space-between;
     padding: 0 16px;
+    gap: 9px;
+    position: relative;
+  }
+  .menu-toggle {
+    display: block;
+    order: 1;
+  }
+  .brand {
+    order: 2;
+    margin-right: auto;
   }
   .nav-links {
     display: none;
   }
   .nav-actions {
+    display: flex;
     gap: 7px;
   }
-  .cart-button span,
-  .outline-button {
+  .outline-button,
+  .cart-button span {
     display: none;
   }
   .menu-grid {
@@ -1041,4 +1051,14 @@ td small {
   .hero h1 {
     font-size: 2.7rem;
   }
+  .primary-button{
+    padding:8px 10px;
+    font-size:.8rem;
+}
+.language{
+    padding:8px;
+}
+.cart-button{
+    padding:8px;
+}
 }
