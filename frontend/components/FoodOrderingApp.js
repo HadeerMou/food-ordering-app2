@@ -573,7 +573,7 @@ export default function FoodOrderingApp() {
           className="menu-toggle"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          ☰
+          {mobileMenuOpen ? "✕" : "☰"}
         </button>
         <button className="brand" onClick={() => setPage("menu")}>
           <span>🍽</span>
@@ -582,20 +582,29 @@ export default function FoodOrderingApp() {
         <div className="nav-links">
           <button
             className={page === "menu" ? "nav-link active" : "nav-link"}
-            onClick={() => setPage("menu")}
+            onClick={() => {
+                setPage("menu");
+                setMobileMenuOpen(false);
+            }}
           >
             {t.menu}
           </button>
           <button
             className={page === "track" ? "nav-link active" : "nav-link"}
-            onClick={() => setPage("track")}
+            onClick={() => {
+                setPage("track");
+                setMobileMenuOpen(false);
+            }}
           >
             {t.track}
           </button>
           {isAdmin && (
             <button
               className={page === "admin" ? "nav-link active" : "nav-link"}
-              onClick={() => setPage("admin")}
+              onClick={() => {
+                setPage("admin");
+                setMobileMenuOpen(false);
+            }}
             >
               {t.admin}
             </button>
@@ -604,7 +613,7 @@ export default function FoodOrderingApp() {
         <div className="nav-actions">
           <button
             className="language"
-            onClick={() => setLanguage(language === "en" ? "ar" : "en")}
+            onClick={() => { setLanguage(language === "en" ? "ar" : "en"); setMobileMenuOpen(false); }}
           >
             {language === "en" ? "عربي" : "EN"}
           </button>
@@ -631,36 +640,42 @@ export default function FoodOrderingApp() {
       </nav>
 
       {mobileMenuOpen && (
-        <div className="mobile-nav">
-          <button
-            onClick={() => {
-              setPage("menu");
-              setMobileMenuOpen(false);
-            }}
-          >
-            {t.menu}
-          </button>
-
-          <button
-            onClick={() => {
-              setPage("track");
-              setMobileMenuOpen(false);
-            }}
-          >
-            {t.track}
-          </button>
-
-          {isAdmin && (
+        <>
+          <div
+            className="mobile-backdrop"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="mobile-nav">
             <button
               onClick={() => {
-                setPage("admin");
+                setPage("menu");
                 setMobileMenuOpen(false);
               }}
             >
-              {t.admin}
+              {t.menu}
             </button>
-          )}
-        </div>
+  
+            <button
+              onClick={() => {
+                setPage("track");
+                setMobileMenuOpen(false);
+              }}
+            >
+              {t.track}
+            </button>
+  
+            {isAdmin && (
+              <button
+                onClick={() => {
+                  setPage("admin");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                {t.admin}
+              </button>
+            )}
+          </div>
+        </>
       )}
 
       {page === "menu" && (
