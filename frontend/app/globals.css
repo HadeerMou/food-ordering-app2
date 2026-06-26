@@ -23,6 +23,10 @@ body {
   color: var(--ink);
   font-family: Arial, Tahoma, sans-serif;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 button,
 input,
 textarea,
@@ -51,12 +55,16 @@ select:focus-visible {
   top: 0;
   z-index: 40;
   backdrop-filter: blur(12px);
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 .menu-toggle {
   display: none;
   border: 0;
   background: transparent;
   font-size: 1.5rem;
+  padding: 6px 8px;
+  line-height: 1;
 }
 
 
@@ -70,6 +78,13 @@ select:focus-visible {
   display: flex;
   gap: 8px;
   align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.brand,
+.nav-actions {
+  min-width: 0; 
 }
 .brand span {
   color: var(--orange);
@@ -990,6 +1005,12 @@ td small {
     display: flex;
     gap: 7px;
   }
+  .language,
+  .cart-button,
+  .primary-button {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
   .outline-button,
   .cart-button span {
     display: none;
@@ -1004,6 +1025,11 @@ td small {
 @media (max-width: 540px) {
   .nav {
     height: 62px;
+    gap: 6px;
+    padding: 0 10px;
+  }
+  .nav-actions {
+    gap: 5px;
   }
   .mobile-nav {
     top: 62px;
