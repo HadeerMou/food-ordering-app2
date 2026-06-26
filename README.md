@@ -1,6 +1,6 @@
-# Nour Restaurant — Full-Stack Food Ordering Prototype
+# Foody Restaurant — Full-Stack Food Ordering Prototype
 
-A 24-hour-scope prototype built as a separate **Next.js/React frontend** and **Node.js/Express API**. It converts the supplied Nour Restaurant HTML concept into a working full-stack application.
+A 24-hour-scope prototype built as a separate **Next.js/React frontend** and **Node.js/Express API**. It converts the supplied Foody Restaurant HTML concept into a working full-stack application.
 
 ## Included features
 
@@ -15,17 +15,17 @@ A 24-hour-scope prototype built as a separate **Next.js/React frontend** and **N
 
 ## Demo accounts
 
-| Role | Email | Password |
-|---|---|---|
-| Admin | `admin@nour.com` | `admin123` |
-| Customer | `user@nour.com` | `user123` |
+| Role     | Email             | Password   |
+| -------- | ----------------- | ---------- |
+| Admin    | `admin@foody.com` | `admin123` |
+| Customer | `user@foody.com`  | `user123`  |
 
 ## Run locally
 
 Prerequisite: Node.js 20.9 or later.
 
 ```bash
-cd nour-food-ordering
+cd foody-food-ordering
 npm install
 cp backend/.env.example backend/.env
 cp frontend/.env.local.example frontend/.env.local
@@ -45,23 +45,23 @@ The Express API runs at `http://localhost:4000`.
 
 ## API overview
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| POST | `/api/auth/register` | Register a customer |
-| POST | `/api/auth/login` | Login and receive JWT |
-| GET | `/api/menu` | List active menu items |
-| POST/PATCH/DELETE | `/api/menu` | Admin product management |
-| POST | `/api/orders` | Create an authenticated order |
-| GET | `/api/orders/:id` | Public order tracking |
-| GET | `/api/orders/me` | Current customer's order history |
-| GET | `/api/admin/dashboard` | Admin overview statistics |
-| GET | `/api/admin/orders` | Admin order monitor |
-| PATCH | `/api/admin/orders/:id/status` | Update an order status |
+| Method            | Endpoint                       | Purpose                          |
+| ----------------- | ------------------------------ | -------------------------------- |
+| POST              | `/api/auth/register`           | Register a customer              |
+| POST              | `/api/auth/login`              | Login and receive JWT            |
+| GET               | `/api/menu`                    | List active menu items           |
+| POST/PATCH/DELETE | `/api/menu`                    | Admin product management         |
+| POST              | `/api/orders`                  | Create an authenticated order    |
+| GET               | `/api/orders/:id`              | Public order tracking            |
+| GET               | `/api/orders/me`               | Current customer's order history |
+| GET               | `/api/admin/dashboard`         | Admin overview statistics        |
+| GET               | `/api/admin/orders`            | Admin order monitor              |
+| PATCH             | `/api/admin/orders/:id/status` | Update an order status           |
 
 ## Project structure
 
 ```text
-nour-food-ordering/
+foody-food-ordering/
 ├── frontend/                 # Next.js + React App Router UI
 │   ├── app/
 │   └── components/

@@ -3,7 +3,7 @@ export const seedData = {
     {
       id: "usr_admin",
       name: "Admin",
-      email: "admin@nour.com",
+      email: "admin@foody.com",
       password: "$2a$10$WBMe9dkKnFyo2Fdx8rIvRuMD1Zktc8tU4vSHgXDecvcjVEroj.nM.",
       role: "admin",
       phone: "",
@@ -11,7 +11,7 @@ export const seedData = {
     {
       id: "usr_demo",
       name: "Ahmed Ali",
-      email: "user@nour.com",
+      email: "user@foody.com",
       password: "$2a$10$CeGDaq0qiwgcsTWir0FDPuphwNqDo/epnQcVdklr2l1p56ui.zpem",
       role: "user",
       phone: "+20 100 000 0000",

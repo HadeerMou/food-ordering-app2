@@ -1,8 +1,11 @@
 {
-  "name": "nour-food-ordering",
+  "name": "foody-food-ordering",
   "private": true,
   "version": "1.0.0",
-  "workspaces": ["frontend", "backend"],
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
     "build": "npm run build --workspace frontend",
