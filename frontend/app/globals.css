@@ -59,10 +59,6 @@ select:focus-visible {
   font-size: 1.5rem;
 }
 
-.mobile-nav {
-  display: none;
-}
-
 
 .brand {
   border: 0;
@@ -948,7 +944,7 @@ td small {
 
 .mobile-nav{
     display:none;
-    position:absolute;
+    position:fixed;
     top:72px;
     left:0;
     right:0;
@@ -965,7 +961,20 @@ td small {
     text-align:left;
     border-bottom:1px solid #eee;
 }
+.mobile-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:99;
+}
 
+.mobile-nav{
+    position:fixed;
+    top:70px;
+    left:0;
+    right:0;
+    z-index:100;
+}
 @media (max-width: 850px) {
   .nav {
     justify-content: space-between;
@@ -974,7 +983,7 @@ td small {
     position: relative;
   }
   .menu-toggle {
-    display: block;
+    display: flex;
     order: 1;
   }
   .brand {
