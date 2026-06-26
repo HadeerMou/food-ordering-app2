@@ -13,7 +13,9 @@
 }
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -35,6 +37,11 @@ select {
 }
 button {
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 button:focus-visible,
 input:focus-visible,
@@ -66,7 +73,10 @@ select:focus-visible {
   padding: 6px 8px;
   line-height: 1;
 }
-
+.menu-toggle,
+.mobile-nav button {
+  color: var(--ink);
+}
 
 .brand {
   border: 0;
