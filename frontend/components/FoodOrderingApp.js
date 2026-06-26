@@ -3,6 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { api } from "./api";
 
+// Main application component.
+// Handles customer ordering, authentication,
+// order tracking, and admin management.
+
 const DELIVERY_FEE = 15;
 const categoryAr = {
   Starters: "المقبلات",

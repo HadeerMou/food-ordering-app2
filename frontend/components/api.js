@@ -2,6 +2,13 @@ import menu from "../data/menu";
 import orders from "../data/orders";
 import users from "../data/users";
 
+/**
+ * Generic API helper.
+ * Attempts to communicate with the backend API.
+ * If the backend is unavailable, it falls back to local mock data
+ * so the prototype remains fully functional.
+ */
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
 
 export async function api(path, { method = "GET", body, token } = {}) {
